@@ -10,6 +10,7 @@
 [build.environment]
   NODE_VERSION = "20"
   NPM_VERSION = "10"
+  NPM_CONFIG_PRODUCTION = "false"
 
 # Redirects for SPA (Single Page Application)
 # This ensures that all routes that don't match a file or directory will return index.html
