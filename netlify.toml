@@ -1,0 +1,64 @@
+# Netlify Configuration for Shahan Sai Floral Boutique
+
+# Build settings
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "functions"
+
+# Environment variables
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_VERSION = "10"
+
+# Redirects for SPA (Single Page Application)
+# This ensures that all routes that don't match a file or directory will return index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for optimization and security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Cache control for static assets
+    Cache-Control = "public, max-age=31536000, immutable"
+    # Security headers
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Specific cache rules for HTML files
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Specific cache rules for images
+[[headers]]
+  for = "/assets/*.{png,jpg,jpeg,gif,svg,webp}"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Specific cache rules for CSS and JS
+[[headers]]
+  for = "/assets/*.{css,js}"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Context-specific settings for production
+[context.production]
+  command = "npm run build"
+  environment = { NODE_ENV = "production" }
+
+# Context-specific settings for preview/staging
+[context.deploy-preview]
+  command = "npm run build"
+  environment = { NODE_ENV = "staging" }
+
+# Context-specific settings for development
+[context.branch-deploy]
+  command = "npm run build"
+  environment = { NODE_ENV = "development" }
