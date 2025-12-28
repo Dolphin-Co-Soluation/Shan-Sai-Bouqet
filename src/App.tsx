@@ -3,17 +3,25 @@ import './App.css'
 import d1 from './image/display/1.jpeg'
 import d2 from './image/display/2.jpeg'
 import d3 from './image/display/3.jpeg'
+import d4 from './image/display/4.jpeg'
+import d5 from './image/display/5.jpeg'
+import d6 from './image/display/6.jpeg'
+import d7 from './image/display/7.jpeg'
 import Petals from './components/Petals'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Carousel from './components/Carousel'
-import Contact from './components/Contact'
+import MapLocator from './components/MapLocator'
 import Footer from './components/Footer'
 
 const bouquetItems = [
   { src: d1, title: 'Elegant Blue Bouquet', desc: 'Hand-tied arrangement with soft blues and whites.' },
   { src: d2, title: 'Classic Wrap Bouquet', desc: 'Neat wrapping with premium ribbon and card.' },
-  { src: d3, title: 'Festive Surprise', desc: 'A cheerful, decorative bouquet to brighten the day.' }
+  { src: d3, title: 'Festive Surprise', desc: 'A cheerful, decorative bouquet to brighten the day.' },
+  { src: d4, title: 'Romantic Rose Collection', desc: 'Premium roses with lush greenery for special moments.' },
+  { src: d5, title: 'Pastel Garden Mix', desc: 'Soft pastels creating a dreamy, elegant arrangement.' },
+  { src: d6, title: 'Sunshine Yellow Delight', desc: 'Vibrant yellows bringing warmth and joy to any space.' },
+  { src: d7, title: 'Premium White Elegance', desc: 'Pure white flowers symbolizing grace and sophistication.' }
 ]
 
 export default function App() {
@@ -81,7 +89,7 @@ export default function App() {
       <main>
         <Hero backgroundImage={d1} />
         <Carousel items={bouquetItems} flowRef={flowRef} />
-        <Contact />
+        <MapLocator latitude={7.2906} longitude={81.8193} />
       </main>
 
       <Footer />
