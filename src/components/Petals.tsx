@@ -12,23 +12,24 @@ export default function Petals({ enabled = true }: { enabled?: boolean }) {
     if (!container) return
 
     const petals: HTMLElement[] = []
-    const count = 35 // More visible petals
+    const count = 40 // Visible petals
     
     for (let i = 0; i < count; i++) {
       const petal = document.createElement('span')
       petal.className = 'petal'
       
       const left = Math.random() * 100
-      const size = 8 + Math.random() * 28 // 8px - 36px
-      const duration = 10 + Math.random() * 12 // 10s - 22s for slower, graceful fall
-      const delay = Math.random() * -15 // Start at various points in animation cycle
-      const xOffset = -30 + Math.random() * 60
+      const size = 10 + Math.random() * 25 // 10px - 35px
+      const duration = 12 + Math.random() * 10 // 12s - 22s
+      const delay = Math.random() * -20 // Start at various points
+      const xOffset = -40 + Math.random() * 80
 
       petal.style.left = `${left}%`
+      petal.style.top = '-50px'
       petal.style.setProperty('--size', `${size}px`)
       petal.style.setProperty('--duration', `${duration}s`)
       petal.style.setProperty('--delay', `${delay}s`)
-      petal.style.setProperty('--x', `${xOffset}vw`)
+      petal.style.setProperty('--x', `${xOffset}px`)
 
       container.appendChild(petal)
       // Force reflow to trigger animation
@@ -47,3 +48,4 @@ export default function Petals({ enabled = true }: { enabled?: boolean }) {
 
   return null
 }
+

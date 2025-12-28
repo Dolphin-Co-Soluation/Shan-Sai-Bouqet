@@ -7,10 +7,10 @@ import d4 from './image/display/4.jpeg'
 import d5 from './image/display/5.jpeg'
 import d6 from './image/display/6.jpeg'
 import d7 from './image/display/7.jpeg'
-import Petals from './components/Petals'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Carousel from './components/Carousel'
+import CustomOrders from './components/CustomOrders'
 import MapLocator from './components/MapLocator'
 import Footer from './components/Footer'
 
@@ -82,13 +82,14 @@ export default function App() {
   return (
     <div className="app">
       <div className="petal-container" aria-hidden="true"></div>
-      <Petals enabled />
+      {/* <Petals enabled /> */}
 
       <Header />
 
       <main>
         <Hero backgroundImage={d1} />
         <Carousel items={bouquetItems} flowRef={flowRef} />
+        <CustomOrders />
         <MapLocator latitude={7.2906} longitude={81.8193} />
       </main>
 
